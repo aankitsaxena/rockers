@@ -15,4 +15,13 @@ export class MemberService {
   getMembers() {
     return this.http.get('/server/api/v1/member');
   }
+
+  getBike(id: number) {
+    return this.http.get('/server/api/v1/member/' + id);
+  }
+
+  addMember(member) {
+    let body = JSON.stringify(member);
+    return this.http.post('/server/api/v1/member', body, httpOptions);
+  }
 }
