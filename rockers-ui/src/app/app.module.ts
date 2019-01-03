@@ -7,17 +7,21 @@ import { AppComponent } from './app.component';
 import { MemberService} from './services/member.service';
 import { AdminComponent } from './components/admin/admin.component';
 import { HomeComponent } from './components/home/home.component';
+import { NewMemberEntryComponent } from './components/new-member-entry/new-member-entry.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminComponent,
-    HomeComponent
+    HomeComponent,
+    NewMemberEntryComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [MemberService],
   bootstrap: [AppComponent]
