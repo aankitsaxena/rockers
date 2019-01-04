@@ -24,4 +24,8 @@ export class MemberService {
     let body = JSON.stringify(member);
     return this.http.post('/server/api/v1/member', body, httpOptions);
   }
+
+  deleteMember(member) {
+    return this.http.delete('/server/api/v1/member', member);
+  }
 }

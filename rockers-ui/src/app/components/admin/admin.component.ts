@@ -22,7 +22,9 @@ export class AdminComponent implements OnInit {
     )
   }
 
-  deleteMember() {
-    
+  deleteMember(member) {
+    this.memberService.deleteMember(member).subscribe(
+      () => console.log("Member Deleted: " + member.id)
+    )
   }
 }
