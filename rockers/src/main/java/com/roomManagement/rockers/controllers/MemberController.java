@@ -1,6 +1,5 @@
 package com.roomManagement.rockers.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +29,7 @@ public class MemberController {
 	@PostMapping
 	@ResponseStatus(HttpStatus.OK)
 	public void addMember(@RequestBody Member member) {
-		
+		memberRepository.save(member);
 	}
 	
 	@GetMapping("/{id}")

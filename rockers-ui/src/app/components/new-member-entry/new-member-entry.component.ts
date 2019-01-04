@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MemberService } from 'src/app/services/member.service';
 
 @Component({
   selector: 'app-new-member-entry',
@@ -8,11 +9,21 @@ import { FormControl } from '@angular/forms';
 })
 export class NewMemberEntryComponent implements OnInit {
 
-  constructor() { }
+  private member;
+  constructor(private memberService: MemberService) { }
 
   ngOnInit() {
   }
 
-  id = new FormControl('');
+  addMember(firstName: string, lastName: string) {
+    this.member = {
+      firstName: firstName,
+      lastName: lastName
+    }
+
+    this.memberService.addMember(this.member).subscribe(
+      () => console.log('member added')
+    )
+  }
 
 }

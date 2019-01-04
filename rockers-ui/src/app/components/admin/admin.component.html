@@ -4,6 +4,7 @@
       <th>Member ID</th>
       <th>First Name</th>
       <th>Last Name</th>
+      <th>Delete</th>
     </tr>
     <tr *ngFor="let member of members">
       <td>
@@ -14,6 +15,9 @@
       </td>
       <td>
         {{member.lastName}}
+      </td>
+      <td>
+        <button type="button" class="btn btn-danger" (click)="deleteMember()">Del</button>
       </td>
     </tr>
   </table>
