@@ -15,12 +15,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.roomManagement.rockers.models.Member;
 import com.roomManagement.rockers.repositories.MemberRepository;
+import com.roomManagement.rockers.services.MemberService;
 
 @RestController
 @RequestMapping("/api/v1/member")
 public class MemberController {
 	@Autowired
 	private MemberRepository memberRepository;
+	
+	@Autowired
+	private MemberService memberService;
 	
 	@GetMapping
 	public List<Member> memberList() {
@@ -38,8 +42,8 @@ public class MemberController {
 		return memberRepository.getOne(id);
 	}
 	
-	@DeleteMapping
-	public void delete(Member member) {
-		memberRepository.delete(member);
+	@PostMapping("/{id}")
+	public void delete(@PathVariable("id") long id) {
+		memberService.deleteMember(id);
 	}
 }
